@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}
+	{{ profile.name }} - {{ block.super }}
+{% endblock title %}
+
+{% block content %}
+	<h1>{{ profile.name }}</h1>
+	<p>{{ profile.description }}</p>
+	{% if user == profile.user %}
+		<p>
+			<a href="{% url 'edit_profile' slug=profile.slug %}">
+				Edit me!
+			</a>
+		</p>
+	
+{% endblock content %}
